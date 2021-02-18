@@ -39,7 +39,7 @@ gem "rack-attack"
 gem "rqrcode"
 gem "rotp"
 gem "unpwn", "~> 0.3.0"
-gem 'activerecord_acrawriter'
+gem "activerecord_acrawriter"
 
 # Logging
 gem "lograge"

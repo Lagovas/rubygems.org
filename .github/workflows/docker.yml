@@ -13,6 +13,8 @@ jobs:
       RUBY_VERSION: 2.7.2
     steps:
     - uses: actions/checkout@v2
+    - name: Install themis
+      run: sudo bash ./script/install_themis.sh
     - name: Install and start services (needed for image test)
       run: docker-compose up -d
     - name: build, test and optionally push docker image

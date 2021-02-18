@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
+    - name: Install themis
+      run: sudo bash ./script/install_themis.sh
     - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true

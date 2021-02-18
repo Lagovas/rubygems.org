@@ -1,5 +1,5 @@
 require "digest/sha2"
-require 'activerecord_acrawriter'
+require "activerecord_acrawriter"
 
 class Version < ApplicationRecord
   MAX_TEXT_FIELD_LENGTH = 64_000
@@ -43,7 +43,6 @@ class Version < ApplicationRecord
   attribute :authors, AuthorType.new
   attribute :description, AcraType.new
   attribute :summary, AcraType.new
-
 
   # TODO: Remove this once we move to GemDownload only
   after_create :create_gem_download
