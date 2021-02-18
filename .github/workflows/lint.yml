@@ -10,6 +10,16 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
+    - name: Install themis
+        run: |
+          sudo apt-get update && sudo apt-get install -y \
+                     build-essential git curl lsb-release \
+                     apt-transport-https \
+              && curl -sL https://pkgs.cossacklabs.com/gpg | apt-key add - \
+              && echo "deb https://pkgs.cossacklabs.com/stable/debian echo $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/cossacklabs.list \
+              && sudo apt-get update && sudo apt-get install -y libthemis \
+              && sudo apt-get -y autoremove && apt-get -y clean \
+              && sudo rm -rf /var/lib/apt/lists/*
     - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
